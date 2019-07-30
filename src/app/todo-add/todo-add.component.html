@@ -1,0 +1,12 @@
+<div fxLayout>
+    <div>
+        <input class="classic-btn" type="text" placeholder="Add new task">
+    </div>
+    <div>
+        <input placeholder="Time" [ngxTimepicker]="timePicker" readonly>
+        <ngx-material-timepicker #timePicker></ngx-material-timepicker>
+    </div>
+    <div>
+        <button>ADD TASK +</button>
+    </div>
+</div>
