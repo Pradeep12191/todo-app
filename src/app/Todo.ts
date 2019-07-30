@@ -1,6 +1,6 @@
 export interface Todo {
     task: string;
-    time: string;
+    createdDate: string;
     delivery: string;
     status: 'pending' | 'doing' | 'completed';
 }

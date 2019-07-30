@@ -2,3 +2,24 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+*{
+    box-sizing: border-box;
+}
+
+
+
+.m-b-25{
+    margin-bottom: 25px;
+}
+
+.primary{
+    color: rgb(78, 46, 155)
+}
+.m-t-20{
+    margin-top: 20px;
+}
+
+.pointer{
+    cursor: pointer;
+}

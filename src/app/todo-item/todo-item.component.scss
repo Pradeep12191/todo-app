@@ -1,6 +1,5 @@
 mat-card.mat-card{
     box-shadow: 0px 0px 0px;
-    padding: 24px 16px;
     .task-label{
         font-weight: 500;
     }
@@ -8,5 +7,21 @@ mat-card.mat-card{
         font-weight: 500;
         font-size: 13px;
         color: grey;
+    }
+
+    .status-label{
+        font-weight: 500;
+        font-size: 13px;
+    }
+
+    .drop-arrow{
+        transform: rotate(-45deg);
+        margin-left: 10px;
+        margin-top: 3px;
+        height: 7px;
+        width: 7px;
+        border: 2px solid grey;
+        border-top: transparent;
+        border-right: transparent;
     }
 }

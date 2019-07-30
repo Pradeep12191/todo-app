@@ -1,12 +1,22 @@
 <mat-card>
     <mat-card-content>
         <div fxLayout fxLayoutGap="10px">
-            <div fxLayout fxLayoutAlign="start center"  fxFlex="5"><img src="../../assets/icons/baseline_drag_indicator_black_18dp.png"></div>
+            <div fxLayout fxLayoutAlign="start center" fxFlex="5"><ng-content></ng-content></div>
             <div fxLayout fxLayoutAlign="start center" fxFlex="60" class="task-label">{{ todo.task }}</div>
-            <div fxLayout fxLayoutAlign="start center"  fxFlex="10" class="grey-text">{{ todo.time }}</div>
-            <div fxLayout fxLayoutAlign="start center"  fxFlex="10" class="grey-text">{{ todo.delivery }}</div>
-            <div fxLayout fxLayoutAlign="start center"  fxFlex="10">{{ todo.status }}</div>
-            <div fxLayout fxLayoutAlign="start center"  fxFlex="5"><img src="../../assets/icons/baseline_drag_indicator_black_18dp.png"></div>
+            <div fxLayout fxLayoutAlign="start center" fxFlex="10" class="grey-text">{{ todo.createdDate | dateAgo }}</div>
+            <div fxLayout fxLayoutAlign="start center" fxFlex="10" class="grey-text">{{ todo.delivery }}</div>
+            <div fxLayout fxLayoutAlign="start center" fxFlex="10">
+                <div class="pointer" fxLayout [style.color]="getStatus(todo.status).color" [matMenuTriggerFor]="menu">
+                    <div class="status-label">
+                        {{ getStatus(todo.status).value }}
+                    </div>
+                    <div class="drop-arrow"></div>
+                </div>
+                <mat-menu #menu="matMenu">
+                    <button *ngFor="let status of statusList" (click)="onStatusClick(status)" mat-menu-item>{{ status.value }}</button>
+                </mat-menu>
+            </div>
+            <div  (click)="deleteTodo(index)" fxLayout fxLayoutAlign="start center" class="pointer" fxFlex="5"><img src="../../assets/icons/baseline_delete_outline_black_18dp.png"></div>
         </div>
     </mat-card-content>
 </mat-card>

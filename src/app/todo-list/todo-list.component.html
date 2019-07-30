@@ -1,4 +1,49 @@
-<div fxLayout="column" fxLayoutGap="5px">
-    <todo-item [todo]="todo" *ngFor="let todo of todos">
-    </todo-item>
+<div fxLayout="column" fxLayoutGap="7px">
+    <div fxFlex fxLayout fxLayoutGap="10px" class="sort-header">
+        <div fxFlex="5"></div>
+        <div fxFlex="60">TASK</div>
+        <div class="sort" (click)="sort(header)" fxLayout fxFlex="10" *ngFor="let header of headers">
+            <div [fxFlex]="header.labelFlex">
+                {{header.name}}
+            </div>
+            <div class="sort-arrow-container">
+                <div class="sort-arrow top" [class.active]="header.sortDirection === 'asc'"></div>
+                <div class="sort-arrow bottom" [class.active]="header.sortDirection === 'desc'"></div>
+            </div>
+        </div>
+        <!-- <div class="sort" (click)="sort('time')" fxLayout fxFlex="10">
+            <div fxFlex="65">
+                TIME
+            </div>
+            <div class="sort-arrow-container">
+                <div class="sort-arrow top" [class.active]="sortDirection === 'asc'"></div>
+                <div class="sort-arrow bottom" [class.active]="sortDirection === 'desc'"></div>
+            </div>
+        </div>
+        <div class="sort" fxFlex="10">
+            <div fxFlex="75">
+                DELIVERY
+            </div>
+            <div class="sort-arrow-container">
+                <div class="sort-arrow top"></div>
+                <div class="sort-arrow bottom"></div>
+            </div>
+        </div>
+        <div class="sort" fxFlex="10">
+            <div fxFlex="65">
+                STATUS
+            </div>
+            <div class="sort-arrow-container">
+                <div class="sort-arrow top"></div>
+                <div class="sort-arrow bottom"></div>
+            </div>
+        </div> -->
+        <div fxFlex="5"></div>
+    </div>
+    <div fxLayout="column" fxLayoutGap="7px" cdkDropList (cdkDropListDropped)="drop($event)" class="drop-list">
+        <todo-item cdkDrag [todo]="todo" [todoIndex]="todoIndex" *ngFor="let todo of todos; let todoIndex = index">
+            <img class="drag-handler" cdkDragHandle src="../../assets/icons/baseline_drag_indicator_black_18dp.png">
+        </todo-item>
+    </div>
+
 </div>

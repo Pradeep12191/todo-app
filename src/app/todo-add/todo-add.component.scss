@@ -1,7 +1,16 @@
-.classic-btn{
+.classic-input{
     border: 1px solid #c7c6c6;
-    padding: 16px;
+    padding: 8px;
     background: transparent;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
+    &.new-task{
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        width: 100%
+    }
+    &.time{
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        width: 100%
+    }
 }
+

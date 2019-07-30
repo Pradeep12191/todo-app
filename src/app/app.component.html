@@ -3,12 +3,21 @@
     <div fxLayout>
       <div fxFlex="75" fxLayout="column">
         <todo-add></todo-add>
-        <todo-list [todos]="todos"></todo-list>
+        <todo-list *ngIf="todos?.length; else emptyMsgTpl" [todos]="todos"></todo-list>
       </div>
-      <div>
-        Task summary
+      <div fxFlex fxLayout fxLayoutAlign="center start">
+        <todo-summary fxFlex="80"></todo-summary>
       </div>
     </div>
 
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+
+<ng-template #emptyMsgTpl>
+  <mat-card class="m-t-20">
+    <mat-card-content>
+      No Todo found. Please add a new Todo.
+    </mat-card-content>
+  </mat-card>
+</ng-template>

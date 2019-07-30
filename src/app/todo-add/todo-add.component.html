@@ -1,12 +1,14 @@
-<div fxLayout>
-    <div>
-        <input class="classic-btn" type="text" placeholder="Add new task">
+<form [formGroup]="todoForm">
+    <div fxLayout class="m-b-25">
+        <div fxFlex="60">
+            <input formControlName="task" class="classic-input new-task" type="text" placeholder="Add new task">
+        </div>
+        <div fxFlex="15">
+            <input formControlName="delivery" class="classic-input time" placeholder="Time" [ngxTimepicker]="timePicker" readonly>
+            <ngx-material-timepicker #timePicker></ngx-material-timepicker>
+        </div>
+        <div fxLayout fxLayoutAlign="center" fxFlex="25">
+            <button [disabled]="todoForm.invalid" (click)="addTodo()" mat-flat-button color="primary">ADD TASK +</button>
+        </div>
     </div>
-    <div>
-        <input placeholder="Time" [ngxTimepicker]="timePicker" readonly>
-        <ngx-material-timepicker #timePicker></ngx-material-timepicker>
-    </div>
-    <div>
-        <button>ADD TASK +</button>
-    </div>
-</div>
+</form>
